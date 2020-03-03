@@ -1,0 +1,1111 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="what_is_chalk.html"><strong aria-hidden="true">1.</strong> What is Chalk?</a></li><li><ol class="section"><li class="expanded "><a href="what_is_chalk/crates.html"><strong aria-hidden="true">1.1.</strong> Crates</a></li></ol></li><li class="expanded "><a href="contribution_guide.html"><strong aria-hidden="true">2.</strong> Contribution guide</a></li><li class="expanded "><a href="repl.html"><strong aria-hidden="true">3.</strong> REPL</a></li><li class="expanded "><a href="types.html"><strong aria-hidden="true">4.</strong> Representing and manipulating Rust types</a></li><li><ol class="section"><li class="expanded "><a href="types/role_of_interner.html"><strong aria-hidden="true">4.1.</strong> The role of the Interner</a></li><li class="expanded "><a href="types/how_to_control_repr.html"><strong aria-hidden="true">4.2.</strong> Controlling representation with Interner</a></li><li class="expanded "><a href="types/rust_types.html"><strong aria-hidden="true">4.3.</strong> Rust types</a></li><li><ol class="section"><li class="expanded "><a href="types/rust_types/application_ty.html"><strong aria-hidden="true">4.3.1.</strong> Application types</a></li></ol></li><li class="expanded "><a href="types/rust_lifetimes.html"><strong aria-hidden="true">4.4.</strong> Rust lifetimes</a></li><li class="expanded "><a href="types/operations.html"><strong aria-hidden="true">4.5.</strong> Operations</a></li><li><ol class="section"><li class="expanded "><a href="types/operations/fold.html"><strong aria-hidden="true">4.5.1.</strong> Fold and the Folder trait</a></li></ol></li></ol></li><li class="expanded "><a href="rust_ir.html"><strong aria-hidden="true">5.</strong> Representing traits, impls, and other parts of Rust programs</a></li><li class="expanded "><a href="clauses.html"><strong aria-hidden="true">6.</strong> Lowering Rust IR to logic</a></li><li><ol class="section"><li class="expanded "><a href="clauses/type_equality.html"><strong aria-hidden="true">6.1.</strong> Unification and type equality</a></li></ol></li><li class="expanded "><a href="engine.html"><strong aria-hidden="true">7.</strong> How does the engine work</a></li><li><ol class="section"><li class="expanded "><a href="engine/major_concepts.html"><strong aria-hidden="true">7.1.</strong> Major concepts</a></li><li class="expanded "><a href="engine/logic.html"><strong aria-hidden="true">7.2.</strong> Logic</a></li><li><ol class="section"><li class="expanded "><a href="engine/logic/coinduction.html"><strong aria-hidden="true">7.2.1.</strong> Coinduction</a></li></ol></li></ol></li><li class="expanded "><a href="glossary.html"><strong aria-hidden="true">8.</strong> Glossary and terminology</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#what-is-chalk" id="what-is-chalk">What is Chalk?</a></h1>
+<h1><a class="header" href="#crate-breakdown" id="crate-breakdown">Crate breakdown</a></h1>
+<p>Chalk is broken up into a number of crates. This chapter explains the
+role of each crate. This crate structure helps to serve Chalk's two goals:</p>
+<ul>
+<li>To serve as the trait engine for compilers and tools like rustc and rust-analyzer</li>
+<li>To be usable as a standalone REPL and testing harness</li>
+</ul>
+<h2><a class="header" href="#crates-for-embedding-chalk-into-other-programs" id="crates-for-embedding-chalk-into-other-programs">Crates for embedding chalk into other programs</a></h2>
+<p>The following crates are &quot;public facing&quot; crates that you may use when embedding chalk into
+other programs:</p>
+<ul>
+<li>The <code>chalk-solve</code> crate, which defines the rules that translate Rust IR into logical predicates.</li>
+<li>The <code>chalk-ir</code> crate, which defines the IR representing types and logical predicates.</li>
+<li>The <code>chalk-rust-ir</code> crate, which defines the IR representing Rust concepts like traits and impls.</li>
+</ul>
+<p>The following crate is an implementation detail, used internally by <code>chalk-solve</code>:</p>
+<ul>
+<li>The <code>chalk-engine</code> crate, which defines the actual engine that solves logical predicate. This 
+engine is quite general and not really specific to Rust.</li>
+<li>The <code>chalk-derive</code> crate defines custom derives for the <code>chalk_ir::fold::Fold</code> trait and other
+such things.</li>
+<li>The <code>chalk-macros</code> crate defines a few miscellaneous utility macros.</li>
+</ul>
+<h2><a class="header" href="#crates-for-standalone-repl-and-testing" id="crates-for-standalone-repl-and-testing">Crates for standalone REPL and testing</a></h2>
+<p>The following crates are used to define the REPL and internal testing
+harness. These crates build on the crates above. Essentially, they
+define a kind of &quot;minimal embedding&quot; of chalk.</p>
+<ul>
+<li>The <code>chalk-parser</code> crate can parse Rust syntax to product an AST.</li>
+<li>The <code>chalk-integration</code> crate can take that AST and use it to drive
+the <code>chalk-solve</code> crate above. The AST is converted into
+<code>chalk-rust-ir</code> by a process called &quot;lowering'.</li>
+<li>Finally, the main <code>chalk</code> crate, along with the testing crate in the
+<code>tests</code> directory, define the actual entry points.</li>
+</ul>
+<h1><a class="header" href="#contribution-guide" id="contribution-guide">Contribution guide</a></h1>
+<h1><a class="header" href="#repl" id="repl">REPL</a></h1>
+<h1><a class="header" href="#representing-and-manipulating-rust-types" id="representing-and-manipulating-rust-types">Representing and manipulating Rust types</a></h1>
+<h2><a class="header" href="#goal-of-the-chalk-ir-crate" id="goal-of-the-chalk-ir-crate">Goal of the chalk-ir crate</a></h2>
+<p>To have an ergonomic, flexible library that can abstractly represent
+Rust types and logical predicates. The library should be expose a
+&quot;minimal&quot; set of types that is nonetheless able to capture the full
+range of Rust types. &quot;Minimal&quot; here means that some of the surface
+differences in Rust types -- e.g., the distinction between built-in
+types like <code>u32</code> and user-defined types like a struct -- ought to be
+minimized, so that code that works with these types (e.g., trait
+solving) can focus on the most important differences.</p>
+<h2><a class="header" href="#goal-support-embedding-and-a-variety-of-contexts" id="goal-support-embedding-and-a-variety-of-contexts">Goal: support embedding and a variety of contexts</a></h2>
+<p>One of our goals is to create a type representation that can be
+readily embedded into a variety of contexts. Most specifically, we
+would like to be able to embed into rustc and rust-analyzer, and
+permit those two projects to use distinct memory management
+strategies. This is primarily achieved via the <code>Interner</code> trait.</p>
+<p>Initially, at least in rustc, the goal is to be able to easily and
+&quot;reasonably efficiently&quot; convert back and forth between rustc's native
+type representation and chalk's representation. Once chalk's design
+has stabilized, however, the goal would be for rustc to adopt this
+format as its &quot;native&quot; representation.</p>
+<p>Note that even if the chalk type library were used everywhere,
+however, it would still be useful for rustc to be able to control the
+memory management strategy. (In other words, different consumers might
+wish to use it in different ways.)</p>
+<h2><a class="header" href="#note-on-status" id="note-on-status">Note on status</a></h2>
+<p>At the moment, this documentation is a &quot;proposal&quot;. That means that it
+diverges in some places from what is actually implemented. It has also
+not been thoroughly discussed by the Rust compiler team as a whole.</p>
+<p>Here is a (partial) list of some things that have to be adapted in
+Chalk as of today to match this document:</p>
+<ul>
+<li><code>Parameter&lt;I&gt;</code> needs to be renamed to <code>GenericArgument</code></li>
+<li><code>Vec&lt;Parameter&lt;I&gt;&gt;</code> needs to be replaced with <code>GenericArguments</code></li>
+<li>Extract <code>TypeName</code> into something opaque to chalk-ir.</li>
+<li>Dyn type equality should probably be driven by entailment.</li>
+<li>Projections need to be renamed to aliases.</li>
+<li>The variant we use for impl traits should be removed and folded into type aliases. </li>
+<li>Remove placeholders and projection placeholders from apply and create placeholder types.</li>
+<li>Move <code>Error</code> from a <code>TypeName</code> to its own variant.</li>
+<li>Introduce <code>GeneratorWitness</code> into chalk</li>
+<li>Complete transition from <code>ForAll</code> to <code>Fn</code> in chalk </li>
+</ul>
+<h2><a class="header" href="#the-role-of-the-interner" id="the-role-of-the-interner">The role of the <code>Interner</code></a></h2>
+<p>Most everything in the IR is parameterized by the <a href="http://rust-lang.github.io/chalk/chalk_ir/interner/trait.Interner.html"><code>Interner</code></a> trait:</p>
+<pre><code class="language-rust ignore">trait Interner: Copy + Clone + Debug + Eq + Ord { 
+    ..
+}
+</code></pre>
+<p>We'll go over the details later, but for now it suffices to say that
+the interner is defined by the embedded and can be used to control
+(to a certain extent) the actual representation of types, goals, and
+other things in memory. For example, the <code>Interner</code> trait could be
+used to intern all the types, as rustc does, or it could be used to
+<code>Box</code> them instead, as the chalk testing harness currently does.</p>
+<h3><a class="header" href="#controlling-representation-with-interner" id="controlling-representation-with-interner">Controlling representation with <code>Interner</code></a></h3>
+<p>The purpose of the <a href="http://rust-lang.github.io/chalk/chalk_ir/interner/trait.Interner.html"><code>Interner</code></a> trait is to give control over how
+types and other bits of chalk-ir are represented in memory. This is
+done via an &quot;indirection&quot; strategy. We'll explain that strategy here
+in terms of <a href="http://rust-lang.github.io/chalk/chalk_ir/struct.Ty.html"><code>Ty</code></a> and <a href="http://rust-lang.github.io/chalk/chalk_ir/enum.TyData.html"><code>TyData</code></a>, the two types used to represent
+Rust types, but the same pattern is repeated for many other things.</p>
+<p>Types are represented by a <a href="http://rust-lang.github.io/chalk/chalk_ir/struct.Ty.html"><code>Ty&lt;I&gt;</code></a> type and the <a href="http://rust-lang.github.io/chalk/chalk_ir/enum.TyData.html"><code>TyData&lt;I&gt;</code></a> enum.
+There is no <em>direct</em> connection between them. The link is rather made
+by the <a href="http://rust-lang.github.io/chalk/chalk_ir/interner/trait.Interner.html"><code>Interner</code></a> trait, via the <a href="http://rust-lang.github.io/chalk/chalk_ir/interner/trait.Interner.html#associatedtype.InternedType"><code>InternedTy</code></a> associated type:</p>
+<pre><code class="language-rust ignore">struct Ty&lt;I: Interner&gt;(I::InternedTy);
+enum TyData&lt;I: Interner&gt; { .. }
+</code></pre>
+<p>The way this works is that the <a href="http://rust-lang.github.io/chalk/chalk_ir/interner/trait.Interner.html"><code>Interner</code></a> trait has an associated
+type <a href="http://rust-lang.github.io/chalk/chalk_ir/interner/trait.Interner.html#associatedtype.InternedType"><code>InternedTy</code></a> and two related methods, <a href="http://rust-lang.github.io/chalk/chalk_ir/interner/trait.Interner.html#tymethod.intern_ty"><code>intern_ty</code></a> and <a href="http://rust-lang.github.io/chalk/chalk_ir/interner/trait.Interner.html#tymethod.ty_data"><code>ty_data</code></a>:</p>
+<pre><code class="language-rust ignore">trait Interner {
+    type InternedTy;
+    
+    fn intern_ty(&amp;self, data: &amp;TyData&lt;Self&gt;) -&gt; Self::InternedTy;
+    fn ty_data(data: &amp;Self::InternedTy) -&gt; &amp;TyData&lt;Self&gt;;
+}
+</code></pre>
+<p>However, as a user you are not meant to use these directly. Rather,
+they are encapsulated in methods on the <a href="http://rust-lang.github.io/chalk/chalk_ir/struct.Ty.html"><code>Ty</code></a> and <a href="http://rust-lang.github.io/chalk/chalk_ir/enum.TyData.html"><code>TyData</code></a> types:</p>
+<pre><code class="language-rust ignore">impl&lt;I: Interner&gt; Ty&lt;I&gt; {
+  fn data(&amp;self) -&gt; &amp;TyData&lt;I&gt; {
+    I::lookup_ty(self)
+  }
+}
+</code></pre>
+<p>and</p>
+<pre><code class="language-rust ignore">impl&lt;I: Interner&gt; TyData&lt;I&gt; {
+  fn intern(&amp;self, I: &amp;I) -&gt; Ty&lt;I&gt; {
+    Ty(i.intern_ty(self))
+  }
+}
+</code></pre>
+<p>Note that there is an assumption here that <a href="http://rust-lang.github.io/chalk/chalk_ir/interner/trait.Interner.html#tymethod.ty_data"><code>ty_data</code></a> needs no
+context. This effectively constrains the <a href="http://rust-lang.github.io/chalk/chalk_ir/interner/trait.Interner.html#associatedtype.InternedType"><code>InternedTy</code></a> representation
+to be a <code>Box</code> or <code>&amp;</code> type. To be more general, at the cost of some
+convenience, we could make that a method as well, so that one would
+invoke <code>ty.data(i)</code> instead of just <code>ty.data()</code>. This would permit us
+to use (for example) integers to represent interned types, which might
+be nice (e.g., to permit using generational indices).</p>
+<h1><a class="header" href="#rust-types" id="rust-types">Rust types</a></h1>
+<p>Rust types are represented by the <a href="http://rust-lang.github.io/chalk/chalk_ir/struct.Ty.html"><code>Ty</code></a> and <a href="http://rust-lang.github.io/chalk/chalk_ir/enum.TyData.html"><code>TyData</code></a> types.
+You use <a href="http://rust-lang.github.io/chalk/chalk_ir/struct.Ty.html"><code>Ty</code></a> to represent &quot;some Rust type&quot;. But to actually inspect
+what sort of type you have, you invoke the <a href="http://rust-lang.github.io/chalk/chalk_ir/struct.Ty.html#method.data"><code>data</code></a> method, which
+returns a <a href="http://rust-lang.github.io/chalk/chalk_ir/enum.TyData.html"><code>TyData</code></a>. As described earlier, the actual in-memory
+representation of types is controlled by the <a href="http://rust-lang.github.io/chalk/chalk_ir/interner/trait.Interner.html"><code>Interner</code></a> trait.</p>
+<h2><a class="header" href="#the-tydata-variants-and-how-they-map-to-rust-syntax" id="the-tydata-variants-and-how-they-map-to-rust-syntax">The <code>TyData</code> variants and how they map to Rust syntax</a></h2>
+<p>This section covers the variants we use to categorize types. We have
+endeavored to create a breakdown that simplifies the Rust &quot;surface
+syntax&quot; of types to their &quot;essence&quot;. In particular, the goal is to
+group together types that are largely treated identically by the
+system and to separate types when there are important semantic
+differences in how they are handled.</p>
+<table><thead><tr><th>Chalk variant</th><th>Example Rust types</th></tr></thead><tbody>
+<tr><td><code>Apply</code></td><td><code>Vec&lt;u32&gt;</code>, <code>f32</code></td></tr>
+<tr><td><code>Placeholder</code></td><td>how we represent <code>T</code> when type checking <code>fn foo&lt;T&gt;() { .. }</code></td></tr>
+<tr><td><code>Dyn</code></td><td><code>dyn Trait</code></td></tr>
+<tr><td><code>Fn</code></td><td><code>fn(&amp;u8)</code></td></tr>
+<tr><td><code>Alias</code></td><td><code>&lt;T as Iterator&gt;::Item</code>, or the <code>Foo</code> in <code>type Foo = impl Trait</code> and <code>type Foo = u32</code></td></tr>
+<tr><td><code>BoundVariable</code></td><td>an uninstantiated generic parameter like the <code>T</code> in <code>struct Foo&lt;T&gt;</code></td></tr>
+</tbody></table>
+<h2><a class="header" href="#justification-for-each-variant" id="justification-for-each-variant">Justification for each variant</a></h2>
+<p>Each variant of <code>TyData</code> generally wraps a single struct, which
+represents a type known to be of that particular variant. This section
+goes through the variants in a bit more detail, and in particular
+describes why each variant exists.</p>
+<h3><a class="header" href="#application-types" id="application-types">Application types</a></h3>
+<p>The <code>Apply</code> variant contains an <code>ApplicationTy</code>. These are kind of the
+&quot;normal Rust types&quot;, like <code>Vec&lt;u32&gt;</code> or <code>f32</code>. They consist of a &quot;type
+name&quot; (in our examples, <code>Vec</code> and <code>f32</code> respecively) and zero or more
+generic arguments (respectively, <code>[u32]</code> and <code>[]</code>).</p>
+<p>They are equal to other types (modulo aliases, see below) iff they
+have the same &quot;type name&quot; and the generic arguments are
+recursively equal</p>
+<h3><a class="header" href="#placeholders" id="placeholders">Placeholders</a></h3>
+<p>The <code>Placeholder</code> variant contains a <code>PlaceholderIndex</code> type. It
+represents a generic type that is being treated abstractly or -- more
+generally -- the result of a &quot;type function&quot; that cannot be
+evaluated. For example, when typing the body of a generic function
+like <code>fn foo&lt;T: Iterator&gt;</code>, the type <code>T</code> would be represented with a
+placeholder. Similarly, in that same function, the associated type
+<code>T::Item</code> might be represented with a placeholder.</p>
+<p>Like application types, placeholder <em>types</em> are only known to be
+equal.</p>
+<p>However, we choose not to represent placeholder types as type names
+because they need to be created during type unification and other
+operations, and hence that would require treating <code>TypeName</code> less opaquely.</p>
+<p>Moreover, when proving negative goals, e.g., <code>not { Implemented(T: Trait) }</code>, placeholders are treated quite differently from application
+types, since they do not (in fact) represent a known type. When
+solving negative goals, placeholderes are replaced with inference
+variables -- the idea is that this goal is only true if there is <em>no
+type</em> <code>T</code> that implements <code>Trait</code>. Therefore, if we can find no
+answeres for <code>exists&lt;T&gt; { Implemented(T: Trait) }</code>, then we know that
+the negation is true. (Note that this means that e.g. <code>forall&lt;X&gt; { X = i32 }</code> is false but so is <code>forall&lt;X&gt; { not { X = i32 } }</code>.)</p>
+<h3><a class="header" href="#inference-variables" id="inference-variables">Inference variables</a></h3>
+<p>The <code>InferenceVar</code> variant wraps an <code>InferenceVar</code> type.  This
+represents a type whose value is being inferred. The value of an
+inference variables may be &quot;known&quot; or &quot;not known&quot;, but that state is
+stored externally, in the inference context (see the section on
+inference below).</p>
+<p>When equating, inference variables are treated specially in that they
+become bound (or, if they have already been bound, they are replaced
+with their value).</p>
+<p>Inference variables are also integral to canonicalization and
+other types.</p>
+<h3><a class="header" href="#dyn-types" id="dyn-types">Dyn types</a></h3>
+<p>The <code>Dyn</code> variant wraps a <code>DynTy</code> and represents a <code>dyn Trait</code>
+type. In chalk, these are represented as an existential type where we
+store the predicates that are known to be true. So a type like <code>dyn Write</code> would be represented as, effectively, an <code>exists&lt;T&gt; { T: Write }</code> type.</p>
+<p>When equating, two <code>dyn P</code> and <code>dyn Q</code> types are equal if <code>P = Q</code> --
+i.e., they have the same bounds. Note that -- for this purpose --
+ordering of bounds is significant. That means that if you create a
+<code>dyn Foo + Send</code> and a <code>dyn Send + Foo</code>, chalk would consider them
+distinct types. The assumption is that bounds are ordered in some
+canonical fashion somewhere else. This may want to change.</p>
+<p>There are &quot;automatic&quot; rules for proving that <code>dyn P: P</code> and so forth, but
+that is outside the scope of the chalk-ir crate.</p>
+<h3><a class="header" href="#function-pointer-types" id="function-pointer-types">Function pointer types</a></h3>
+<p>The <code>Fn</code> variant wraps a <code>FnTy</code> struct and represents a <code>fn()</code> type
+(in other words, a function pointer). In some ways, fn types are like
+application types, but with one crucial difference: they also contain
+a <code>forall</code> binder that for lifetimes whose value is determined when
+the function is called. Consider e.g. a type like <code>fn(&amp;u32)</code> or --
+more explicitly -- <code>for&lt;'a&gt; fn(&amp;'a u32)</code>.</p>
+<p>Two <code>Fn</code> types <code>A, B</code> are equal <code>A = B</code> if <code>A &lt;: B</code> and <code>B &lt;: A</code></p>
+<p>Two <code>Fn</code> types <code>A, B</code> are subtypes <code>A &lt;: B</code> if</p>
+<ul>
+<li>After instantiating the lifetime parameters on <code>B</code> universally...
+<ul>
+<li>You can instantiate the lifetime parameters on <code>A</code> existentially...
+<ul>
+<li>And then you find that <code>P_B &lt;: P_A</code> for every parameter type <code>P</code> on <code>A</code> and <code>B</code> and
+<code>R_A &lt;: R_B</code> for the return type <code>R</code> of <code>A</code> and <code>B</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>We currently handle type inference with a bit of a hack (same as
+rustc); when relating a <code>Fn</code> type <code>F</code> to an unbounded type
+variable <code>V</code>, we instantiate <code>V</code> with <code>F</code>.  But in practice
+because of the above subtyping rules there are actually a range of
+values that <code>V</code> could have and still be equal with <code>F</code>. This may
+or may not be something to consider revisiting.</p>
+<h3><a class="header" href="#generator-witness-types" id="generator-witness-types">Generator witness types</a></h3>
+<p>The <code>GeneratorWitness</code> variant wraps a <code>GeneratorWitness</code> type.  These
+witnesses represent the types that may be part of a generator
+state. Unlike other types, witnesses include bound, existential
+lifetimes, which refer to lifetimes within the suspended stack frame.
+You can think of it as a type like <code>exists&lt;'a&gt; { (T...) }</code>.</p>
+<p>Witnesses are very similar to an <code>Apply</code> type, but it has a binder for
+the erased lifetime(s), which must be handled specifically in equating
+and so forth. In many ways, witnesses are also quite similar to <code>Fn</code>
+types, and it is not out of the question that these two could be
+unified; however, they are quite distinct semantically and so that
+would be an annoying mismatch in other parts of the system.
+Witnesses are also similar to a <code>Dyn</code> type, in that they represent an
+existential type, but in contrast to <code>Dyn</code>, what we know here is
+not a <em>predicate</em> but rather some upper bound on the set of types
+contained within.</p>
+<h3><a class="header" href="#alias-types" id="alias-types">Alias types</a></h3>
+<p>The <code>Alias</code> variant wraps an <code>AliasTy</code> and is used to represent some form of <em>type
+alias</em>. These correspond to associated type projections like <code>&lt;T as Iterator&gt;::Item</code>
+but also <code>impl Trait</code> types and named type aliases like <code>type Foo&lt;X&gt; = Vec&lt;X&gt;</code>. </p>
+<p>Each alias has an alias id as well as parameters. Aliases effectively
+represent a <em>type function</em>.</p>
+<p>Aliases are quite special when equating types. In general, an alias
+type <code>A</code> can also be equal to <em>any other type</em> <code>T</code> if evaluating the
+alias <code>A</code> yields <code>T</code> (this is currently handled in Chalk via a
+<code>ProjectionEq</code> goal, but it would be renamed to <code>AliasEq</code> under this
+proposal).</p>
+<p>However, some alias types can also be instantiated as &quot;alias
+placeholders&quot;. This occurs when the precise type of the alias is not
+known, but we know that there is <em>some type</em> that it evaluates to (for
+example, <code>&lt;T as Iterator&gt;::Item</code> might be treated opaquely as
+<code>T::Item</code>; similarly <code>impl Trait</code> types are treated opaquely until the
+latter phases of the compiler). Alias placeholders are not represented
+with the <code>Alias</code> variant, but rather with the placeholder variant
+described previously.</p>
+<h3><a class="header" href="#bound-variables" id="bound-variables">Bound variables</a></h3>
+<p>The <code>BoundVariable</code> variant represents some variable that is bound in
+an outer term. For example, given a term like <code>forall&lt;X&gt; { Implemented(X: Trait) }</code>, the <code>X</code> is bound. Bound variables in chalk
+(like rustc) use de bruijin indices (See below).</p>
+<p>Bound variables are never directly equated, as any bound variables would have
+been instantiated with either inference variables or placeholders.</p>
+<p>They do appear in canonical forms and other terms that contain binders.</p>
+<h3><a class="header" href="#error-types" id="error-types">Error types</a></h3>
+<p>The <code>Error</code> variant represents a type that resulted from some
+erroneous expression. Error types generally propagate eagerly in an
+attempt to suppress nonsense errors that are derived by interactions
+with buggy code.</p>
+<p><code>Error</code> should be its own variant because most bits of code will want
+to handle it somewhat specially -- e.g., maybe it can &quot;unify&quot; with any
+other type without any effect, and so forth.</p>
+<h2><a class="header" href="#mapping-to-rustc-types" id="mapping-to-rustc-types">Mapping to rustc types</a></h2>
+<p>The rustc <a href="https://doc.rust-lang.org/nightly/nightly-rustc/rustc/ty/enum.TyKind.html"><code>TyKind</code></a> enum has a lot more variants than chalk. This
+section describes how the rustc types can be mapped to chalk
+types. The intention is that, at least when transitioning, rustc would
+implement the <code>Interner</code> trait and would map from the <a href="https://doc.rust-lang.org/nightly/nightly-rustc/rustc/ty/enum.TyKind.html"><code>TyKind</code></a>
+enum to chalk's <code>TyData</code> on the fly, when <code>data()</code> is invoked.</p>
+<p>This section describes how each of rustc's variants can be mapped to
+Chalk variants.</p>
+<table><thead><tr><th>rustc type</th><th>chalk variant (and some notes)</th></tr></thead><tbody>
+<tr><td><code>Bool</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Char</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Int(_)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Uint(_)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Float(_)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Adt(_, _)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Foreign(_)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Str</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Array(_, _)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Slice(_)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>RawPtr(_)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Ref(_, _, _)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>FnDef(_, _)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>FnPtr(_, _)</code></td><td><code>Fn</code></td></tr>
+<tr><td><code>Dynamic(_, _)</code></td><td><code>Dyn</code></td></tr>
+<tr><td><code>Closure(_, _)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Generator(_, _)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>GeneratorWitness(_)</code></td><td><code>GeneratorWitness</code></td></tr>
+<tr><td><code>Never</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Tuple(_)</code></td><td><code>Apply</code></td></tr>
+<tr><td><code>Projection(_)</code></td><td><code>Alias</code></td></tr>
+<tr><td><code>UnnormalizedProjection(_)</code></td><td>(see below)</td></tr>
+<tr><td><code>Opaque(_, _)</code></td><td><code>Alias</code></td></tr>
+<tr><td><code>Param(_)</code></td><td>XXX Placeholder?</td></tr>
+<tr><td><code>Bound(_, _)</code></td><td><code>BoundVariable</code></td></tr>
+<tr><td><code>Placeholder(_)</code></td><td><code>Placeholder</code></td></tr>
+<tr><td><code>Infer(_)</code></td><td><code>InferenceVar</code></td></tr>
+<tr><td><code>Error</code></td><td><code>Error</code></td></tr>
+</tbody></table>
+<h1><a class="header" href="#application-types-1" id="application-types-1">Application types</a></h1>
+<p>An <a href="http://rust-lang.github.io/chalk/chalk_ir/struct.ApplicationTy.html"><code>ApplicationTy</code></a> is kind of a &quot;normal Rust type&quot;, like
+<code>Vec&lt;u32&gt;</code> or <code>f32</code>. Such types are only &quot;equal&quot; to themselves (modulo
+aliases, see below), and they may take type arguments.  Note that we
+group together <em>both</em> user-defined structs/enums/unions (like <code>Vec</code>)
+as well as built-in types like <code>f32</code>, which effectively behave the
+same.</p>
+<p>An <a href="http://rust-lang.github.io/chalk/chalk_ir/struct.ApplicationTy.html"><code>ApplicationTy</code></a> contains two fields:</p>
+<ul>
+<li>a &quot;type name&quot; (of type <a href="http://rust-lang.github.io/chalk/chalk_ir/enum.TypeName.html"><code>TypeName</code></a>); and,</li>
+<li>a list of generic arguments (of type <a href="types/rust_types/XXX"><code>GenericArguments</code></a>).</li>
+</ul>
+<p>The <a href="http://rust-lang.github.io/chalk/chalk_ir/enum.TypeName.html"><code>TypeName</code></a> itself is largely opaque to chalk. We discuss it in
+more detail elsewhere. The point is that it represents, semantically,
+either the name of some user-defined type (like <code>Vec</code>) or builtin-types
+like <code>i32</code>. It may also represent types like &quot;tuple of arity 2&quot; (<code>(_, _)</code>) or &quot;fixed-length array&quot; <code>[_; _]</code>. Note that the precise set of
+these built-in types is defined by the <code>Interner</code> and is unknown to
+chalk-ir.</p>
+<h1><a class="header" href="#rust-lifetimes" id="rust-lifetimes">Rust lifetimes</a></h1>
+<p>Lifetimes are represented by the <code>Lifetime&lt;I&gt;</code> and <code>LifetimeData&lt;I&gt;</code>
+types. As with types, the actual representation of a lifetime is
+defined by the associated type <code>I::InternedLifetime</code>.</p>
+<h3><a class="header" href="#the-lifetimedata-variants" id="the-lifetimedata-variants">The <code>LifetimeData</code> variants</a></h3>
+<p>This section covers the variants we use to categorize lifetimes.</p>
+<h4><a class="header" href="#variants-and-their-equivalents-in-rust-syntax" id="variants-and-their-equivalents-in-rust-syntax">Variants and their equivalents in Rust syntax</a></h4>
+<table><thead><tr><th>Chalk variant</th><th>Example Rust types</th></tr></thead><tbody>
+<tr><td><code>BoundVar</code></td><td>the <code>'a</code> in a type like <code>for&lt;'a&gt; fn(&amp;'a u8)</code>, before it is instantiated</td></tr>
+<tr><td><code>InferenceVar</code></td><td>a lifetime whose value is being inferred</td></tr>
+<tr><td><code>Placeholder</code></td><td>how we represent <code>'a</code> when type checking <code>fn foo&lt;'a&gt;() { .. }</code></td></tr>
+<tr><td><code>Static</code></td><td>the lifetime <code>'static</code></td></tr>
+</tbody></table>
+<h1><a class="header" href="#operations" id="operations">Operations</a></h1>
+<p>This chapter describes various patterns and utilities for manipulating
+Rust types.</p>
+<h1><a class="header" href="#fold-and-the-folder-trait" id="fold-and-the-folder-trait">Fold and the Folder trait</a></h1>
+<p>The <a href="http://rust-lang.github.io/chalk/chalk_ir/fold/trait.Fold.html"><code>Fold</code></a> trait permits one to traverse a type or other term in the
+chalk-ir and make a copy of it, possibly making small substitutions or
+alterations along the way. Folding also allows copying a term from one
+interner to another.</p>
+<p>To use the <a href="http://rust-lang.github.io/chalk/chalk_ir/fold/trait.Fold.html"><code>Fold</code></a> trait, one invokes the <a href="http://rust-lang.github.io/chalk/chalk_ir/fold/trait.Fold.html#tymethod.fold_with"><code>Fold::fold_with</code></a> method, supplying some
+&quot;folder&quot; as well as the number of &quot;in scope binders&quot; for that term (typically <code>0</code>
+to start):</p>
+<pre><code class="language-rust ignore">let output_ty = input_ty.fold_with(&amp;mut folder, 0);
+</code></pre>
+<p>The folder is some instance of the <a href="http://rust-lang.github.io/chalk/chalk_ir/fold/trait.Folder.html"><code>Folder</code></a> trait. This trait
+defines a few key callbacks that allow you to substitute different
+values as the fold proceeds. For example, when a type is folded, the
+folder can substitute a new type in its place.</p>
+<h2><a class="header" href="#uses-for-folders" id="uses-for-folders">Uses for folders</a></h2>
+<p>A common use for <code>Fold</code> is to permit a substitution -- that is,
+replacing generic type parameters with their values.</p>
+<h2><a class="header" href="#from-fold-to-folder-to-superfold-and-back-again" id="from-fold-to-folder-to-superfold-and-back-again">From Fold to Folder to SuperFold and back again</a></h2>
+<p>The overall flow of folding is like this.</p>
+<ol>
+<li><a href="http://rust-lang.github.io/chalk/chalk_ir/fold/trait.Fold.html#tymethod.fold_with"><code>Fold::fold_with</code></a> is invoked on the outermost term. It recursively
+walks the term.</li>
+<li>For those sorts of terms (types, lifetimes, goals, program clauses) that have
+callbacks in the <a href="http://rust-lang.github.io/chalk/chalk_ir/fold/trait.Folder.html"><code>Folder</code></a> trait, invoking <a href="http://rust-lang.github.io/chalk/chalk_ir/fold/trait.Fold.html#tymethod.fold_with"><code>Fold::fold_with</code></a> will in turn
+invoke the corresponding method on the <a href="http://rust-lang.github.io/chalk/chalk_ir/fold/trait.Folder.html"><code>Folder</code></a> trait, such as <code>Folder::fold_ty</code>.</li>
+<li>The default implementation of <code>Folder::fold_ty</code>, in turn, invokes
+<code>SuperFold::super_fold_with</code>.  This will recursively fold the
+contents of the type. In some cases, the <code>super_fold_with</code>
+implementation invokes more specialized methods on <a href="http://rust-lang.github.io/chalk/chalk_ir/fold/trait.Folder.html"><code>Folder</code></a>, such
+as [<code>Folder::fold_free_var_ty</code>], which makes it easier to write
+folders that just intercept <em>certain</em> types.</li>
+</ol>
+<p>Thus, as a user, you can customize folding by:</p>
+<ul>
+<li>Defining your own <code>Folder</code> type</li>
+<li>Implementing the appropriate methods to &quot;intercept&quot; types/lifetimes/etc at the right level of
+detail</li>
+<li>In those methods, if you find a case where you would prefer not to
+substitute a new value, then invoke <code>SuperFold::super_fold_with</code> to
+return to the default behavior.</li>
+</ul>
+<h2><a class="header" href="#the-binders-argument" id="the-binders-argument">The <code>binders</code> argument</a></h2>
+<p>Each callback in the <a href="http://rust-lang.github.io/chalk/chalk_ir/fold/trait.Folder.html"><code>Folder</code></a> trait takes a <code>binders</code> argument. This indicates
+the number of binders that we have traversed during folding, which is relevant for debruijn indices.
+So e.g. a bound variable with depth 1, if invoked with a <code>binders</code> value of 1, indicates something that was bound to something external to the fold.</p>
+<p>XXX explain with examples and in more detail</p>
+<h2><a class="header" href="#the-foldresult-associated-type" id="the-foldresult-associated-type">The <code>Fold::Result</code> associated type</a></h2>
+<p>The <code>Fold</code> trait defines a <a href="http://rust-lang.github.io/chalk/chalk_ir/fold/trait.Fold.html#associatedtype.Result"><code>Result</code></a> associated type, indicating the
+type that will result from folding.</p>
+<h2><a class="header" href="#when-to-implement-the-fold-and-superfold-traits" id="when-to-implement-the-fold-and-superfold-traits">When to implement the Fold and SuperFold traits</a></h2>
+<p>Any piece of IR that represents a kind of &quot;term&quot; (e.g., a type, part
+of a type, or a goal, etc) in the logic should implement <code>Fold</code>. We
+also implement <code>Fold</code> for common collection types like <code>Vec</code> as well
+as tuples, references, etc.</p>
+<p>The <code>SuperFold</code> trait should only be implemented for those types that
+have a callback defined on the <code>Folder</code> trait (e.g., types and
+lifetimes).</p>
+<h2><a class="header" href="#derives" id="derives">Derives</a></h2>
+<p>Using the <code>chalk-derive</code> crate, you can auto-derive the <code>Fold</code> trait.
+There isn't presently a derive for <code>SuperFold</code> since it is very rare
+to require it. The derive for <code>Fold</code> is a bit cludgy and requires:</p>
+<ul>
+<li>You must import <code>Fold</code> into scope.</li>
+<li>The type you are deriving <code>Fold</code> on must have either:
+<ul>
+<li>A type parameter that has a <code>Interner</code> bound, like <code>I: Interner</code></li>
+<li>A type parameter that has a <code>HasInterner</code> bound, like <code>I: HasInterner</code></li>
+<li>The <code>has_interner(XXX)</code> attribute.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="header" href="#representing-traits-impls-and-other-parts-of-rust-programs" id="representing-traits-impls-and-other-parts-of-rust-programs">Representing traits, impls, and other parts of Rust programs</a></h1>
+<h1><a class="header" href="#lowering-rust-ir-to-logic" id="lowering-rust-ir-to-logic">Lowering Rust IR to logic</a></h1>
+<h1><a class="header" href="#unification-and-type-equality" id="unification-and-type-equality">Unification and type equality</a></h1>
+<h1><a class="header" href="#chalk-engine" id="chalk-engine">Chalk engine</a></h1>
+<p>The <code>chalk-engine</code> crate is the core PROLOG-like solver for logical
+predicates. Importantly, it is very general and not specific to Rust,
+Rust types, or Rust logic.</p>
+<h2><a class="header" href="#implemented-prolog-concepts" id="implemented-prolog-concepts">Implemented PROLOG concepts</a></h2>
+<p>The engine implements the following PROLOG logic concepts. Some of these
+have been published on previously, and some are <code>Chalk</code>-specific. This isn't
+necesarily an exhaustive list:</p>
+<ul>
+<li>Basic logic</li>
+<li>Negation</li>
+<li>Floundering</li>
+<li>Coinductive solving</li>
+</ul>
+<h2><a class="header" href="#note" id="note">Note</a></h2>
+<p>Throughout most of this chapter, the specifics in regards to
+<code>Canonicalization</code> and <code>UCanonicalization</code> are avoided. These are important
+concepts to understand, but don't particulary help to understand how
+<code>chalk-engine</code> <em>works</em>. In a few places, it may be highlighted if it <em>is</em>
+important.</p>
+<h1><a class="header" href="#major-concepts" id="major-concepts">Major concepts</a></h1>
+<p>This section goes over a few different concepts that are crucial to
+understanding how <code>chalk-engine</code> works, without going over the exact solving
+logic.</p>
+<h2><a class="header" href="#context-contextops-and-inferencetable" id="context-contextops-and-inferencetable"><code>Context</code>, <code>ContextOps</code>, and <code>InferenceTable</code></a></h2>
+<h3><a class="header" href="#context" id="context"><code>Context</code></a></h3>
+<p>The <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.Context.html"><code>Context</code></a> trait is the primary bridge between Chalk internal logic and
+external types. In addition actually <em>defining</em> the types (via associated
+types), it also contains associated functions to convert or extract
+information from those types. Overall, this allows the types to be basically
+opaque to the engine internals. Functions in the trait are agnostic to specific
+program or environment details, since they lack a <code>&amp;self</code> argument.</p>
+<p>To give an example, there is an associated <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.Context.html#associatedtype.Goal"><code>Goal</code></a> type. However, Chalk doesn't
+know how to solve this. Instead, it has to be converted an <a href="https://rust-lang.github.io/chalk/chalk_engine/hh/enum.HhGoal.html"><code>HhGoal</code></a> via the
+<code>Context::into_hh_goal</code> function. This will be coverted more in the <code>Goals</code>
+section.</p>
+<h3><a class="header" href="#contextops" id="contextops"><code>ContextOps</code></a></h3>
+<p>The <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.ContextOps.html"><code>ContextOps</code></a> trait contains functions that may specifically require
+information a specific program or environment. For example, the
+<code>program_clauses</code> function gives potential ways to prove a <code>Goal</code>, but obviously
+it requires knowing the program (for example, what types, traits, and impls
+there are). Functions in this trait all take a <code>&amp;self</code> argument.</p>
+<h3><a class="header" href="#inferencetable" id="inferencetable"><code>InferenceTable</code></a></h3>
+<p>The <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.InferenceTable.html"><code>InferenceTable</code></a> is a super trait to the <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.UnificationOps.html"><code>UnificationOps</code></a>, <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.TruncateOps.html"><code>TruncateOps</code></a>,
+and <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.ResolventOps.html"><code>ResolventOps</code></a>. Each of these contains functions that track the state of
+specific parts of the program. Importantly, these operations can dynamically
+change the state of the logic itself.</p>
+<h2><a class="header" href="#goals" id="goals">Goals</a></h2>
+<p>A &quot;goal&quot; in Chalk can be thought of as &quot;something we want to prove&quot;. The engine
+itself understands <a href="https://rust-lang.github.io/chalk/chalk_engine/hh/enum.HhGoal.html"><code>HhGoal</code></a>s. <code>HHGoal</code>s consist of the most basic logic,
+such as introducing Binders (<code>Forall</code> or <code>Exists</code>) or combining goals (<code>All</code>).
+On the other hand, <code>Context::Goal</code> represents an opaque goal generated
+externally. As such, it may contain any extra information or may be interned.
+When solving a logic predicate, Chalk will lazily convert <code>Context::Goal</code>s
+into <code>HHGoal</code>s.</p>
+<p>There are three types of completely opaque <code>HhGoal</code>s that Chalk can solve:
+<code>Unify</code>, <code>DomainGoal</code>, and <code>CannotProve</code>. Unlike the other types of goals,
+these three cannot be simiplified any further. <code>Unify</code> is the goal of unifying
+any two types. <code>DomainGoal</code> is any goal that can solve by applying a
+<a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.Context.html#associatedtype.ProgramClause"><code>ProgramClause</code></a>. To solve this, more <code>Goal</code>s may generated. Finally,
+<code>CannotProve</code> is a special goal that <em>cannot</em> be proven true or false.</p>
+<h2><a class="header" href="#answers-and-solutions" id="answers-and-solutions">Answers and Solutions</a></h2>
+<p>For every <code>Goal</code>, there are zero or more <code>Answer</code>s. Each <a href="https://rust-lang.github.io/chalk/chalk_engine/struct.Answer.html"><code>Answer</code></a> contains
+values for the inference variables in the goal.</p>
+<p>For example, given the following program:</p>
+<pre><code class="language-notrust">trait Clone {}
+struct A {}
+struct B {}
+impl Clone for A {}
+impl Clone for B {}
+</code></pre>
+<p>With the following goal: <code>exists&lt;T&gt; { T: Clone }</code>
+The following solutions would be given:</p>
+<pre><code class="language-notrust">T = A
+T = B
+</code></pre>
+<p>In other words, either <code>A</code> or <code>B</code> can substituted for <code>T</code> and the goal will
+hold true. Moreover, either answer could be used when further solving other
+goals that depend on this goal.</p>
+<p>However, oftentimes, this is not what external crates want when solving for a
+goal. Instead, the may want a <em>unique</em> solution to this goal. Indeed, when we
+solve for a given root <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.Context.html#associatedtype.Goal"><code>Goal</code></a>, we return a since <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.Context.html#associatedtype.Solution"><code>Solution</code></a>. It is up to the
+implementation of <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.Context.html"><code>Context</code></a> to decide how a <code>Solution</code> is made, given a possibly
+infinite set of answers. One of example of this is the
+<a href="https://rust-lang.github.io/chalk/chalk_solve/solve/slg/aggregate/struct.AntiUnifier.html"><code>AntiUnifier</code></a>
+from <code>chalk-solve</code>, which finds a minimal generalization of answers which don't
+unify. (For the example above, it would return only <code>Ambiguous</code>, since <code>A</code> and
+<code>B</code> can't unify.)</p>
+<h2><a class="header" href="#exclauses-and-strands" id="exclauses-and-strands">ExClauses and Strands</a></h2>
+<p>An <a href="https://rust-lang.github.io/chalk/chalk_engine/struct.ExClause.html"><code>ExClause</code></a> is described in literature as <code>A :- D | G</code> or
+<code>A holds given that G holds with D delayed goals</code>. In <code>chalk-engine</code>, an
+<code>ExClause</code> stores the current state of proving a goal, including existing
+substitutions already found, subgoals yet to be proven, or delayed subgoals. A
+<a href="https://rust-lang.github.io/chalk/chalk_engine/strand/struct.Strand.html"><code>Strand</code></a> wraps both an <a href="https://rust-lang.github.io/chalk/chalk_engine/struct.ExClause.html"><code>ExClause</code></a> and an <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.InferenceTable.html"><code>InferenceTable</code></a> together. </p>
+<h2><a class="header" href="#tables-and-forests" id="tables-and-forests">Tables and Forests</a></h2>
+<p>A <a href="https://rust-lang.github.io/chalk/chalk_engine/strand/struct.Strand.html"><code>Strand</code></a> represents a <em>single</em> direction to find an <a href="https://rust-lang.github.io/chalk/chalk_engine/struct.Answer.html"><code>Answer</code></a> - for example, an
+implementation of a trait with a set of where clauses. However, in a program,
+there may be <em>multiple</em> possible implementations that match a goal - e.g.
+multiple impls with different where clauses. Every <a href="https://rust-lang.github.io/chalk/chalk_engine/table/struct.Table.html"><code>Table</code></a> has a goal, and
+stores existing <code>Answers</code>, as well as all <code>Strand</code>s that may result in more
+answers.</p>
+<p>A <a href="https://rust-lang.github.io/chalk/chalk_engine/forest/struct.Forest.html"><code>Forest</code></a> holds all the <code>Table</code>s that program generates, and is what most of
+the logic is implemented on. It also stores the current state of solving (the
+stack).</p>
+<h1><a class="header" href="#logic" id="logic">Logic</a></h1>
+<h2><a class="header" href="#overview" id="overview">Overview</a></h2>
+<p><code>chalk-engine</code> solves a <code>Goal</code> using a hybrid search strategy with elements of depth- and breadth-first search. When asked to solve a
+particular <code>Goal</code> it hasn't seen before, it will first ask the <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.Context.html"><code>Context</code></a> to
+generate a set of program clauses, that get turned into <a href="https://rust-lang.github.io/chalk/chalk_engine/strand/struct.Strand.html"><code>Strand</code></a>s, that could
+solve that goal. Otherwise, if asked to solve a <code>Goal</code> it has seen before, it
+will select the existing table.</p>
+<p>Once a table is selected, it will pick a <code>Strand</code> and a subgoal of that
+<code>Strand</code>, try to solve that <code>Goal</code>, repeating the process.</p>
+<p>When an <code>Answer</code> is found for a <code>Goal</code>, it is merged into the parent <code>Strand</code>,
+or returned if it was the root <code>Goal</code>. It will then go on to pick the next
+subgoal of the <code>Strand</code> and continue on.</p>
+<p>If at any point the solving stops being &quot;successful&quot; (i.e. we definitely found
+something to be unsolvable), the solving is restarted at the root <code>Goal</code>.</p>
+<h2><a class="header" href="#the-stack" id="the-stack">The stack</a></h2>
+<p>In order to detect cycles (talked more about later), as well as keep track of
+the selected <a href="https://rust-lang.github.io/chalk/chalk_engine/strand/struct.Strand.html"><code>Strand</code></a> for each table, <code>chalk-engine</code> stores a <a href="https://rust-lang.github.io/chalk/chalk_engine/stack/struct.Stack.html"><code>Stack</code></a> on the
+<code>Forest</code>. Whenever a new goal is selected, a <a href="https://rust-lang.github.io/chalk/chalk_engine/stack/struct.StackEntry.html"><code>StackEntry</code></a> is pushed onto the
+<code>Stack</code>, as well as the the &quot;time&quot; (which also gets incremented) that it was
+pushed. This &quot;time&quot; can be compared later to check if all the <code>Strands</code> of a
+<a href="https://rust-lang.github.io/chalk/chalk_engine/table/struct.Table.html"><code>Table</code></a> have been checked in a single solve.</p>
+<p>As either <code>Answer</code>s are found for the selected <code>Table</code>, entries on the stack are
+<code>pop</code>ed. If something is found to be unsolvable, the complete stack is unwound.</p>
+<h2><a class="header" href="#table-creation" id="table-creation">Table creation</a></h2>
+<p>As mentioned before, whenever a new <code>Goal</code> is encounted, a new <a href="https://rust-lang.github.io/chalk/chalk_engine/table/struct.Table.html"><code>Table</code></a> is
+created to store current and future answers. First, the <a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.Context.html#associatedtype.Goal"><code>Goal</code></a> is converted into
+an <a href="https://rust-lang.github.io/chalk/chalk_engine/hh/enum.HhGoal.html"><code>HhGoal</code></a>. If it can be simplified, then a <code>Strand</code> with one or more
+subgoals will be generated and can be followed as above. Otherwise, if it is a
+<code>DomainGoal</code> (see above), then
+<a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.ContextOps.html#tymethod.program_clauses"><code>program_clauses</code></a>
+is called and each clause is converted into a <code>Strand</code> and can be followed.</p>
+<h2><a class="header" href="#root_answer-and-ensure_root_answer" id="root_answer-and-ensure_root_answer"><code>root_answer</code> and <code>ensure_root_answer</code></a></h2>
+<p>The <a href="https://rust-lang.github.io/chalk/chalk_engine/forest/struct.Forest.html#method.root_answer"><code>root_answer</code></a> function is the entry point to solve a <code>Goal</code>. Up until now,
+the idea of <code>Answer</code> versus <code>CompleteAnswer</code> have been ignored. However, in
+reality <code>Answer</code>s to <code>Goal</code>s may actually have delayed subgoals (see <code>ExClause</code>
+and <a href="engine/logic.html#coinduction-and-refinement-strands">Coinduction and refinement strands</a>), whereas <a href="https://rust-lang.github.io/chalk/chalk_engine/struct.CompleteAnswer.html"><code>CompleteAnswer</code></a>s may not.
+<code>root_answer</code> essentially just wraps <a href="https://rust-lang.github.io/chalk/chalk_engine/forest/struct.Forest.html#method.ensure_root_answer"><code>ensure_root_answer</code></a> and converts the
+<code>Goal</code>'s <a href="https://rust-lang.github.io/chalk/chalk_engine/struct.Answer.html"><code>Answer</code></a> to a <a href="https://rust-lang.github.io/chalk/chalk_engine/struct.CompleteAnswer.html"><code>CompleteAnswer</code></a>.</p>
+<p>The <a href="https://rust-lang.github.io/chalk/chalk_engine/forest/struct.Forest.html#method.ensure_root_answer"><code>ensure_root_answer</code></a> function contains the core skeleton of the logic around
+<code>Strand</code> and subgoal selection. The majority of the logic, however, is split out
+into separate functions that branch out from <code>ensure_root_answer</code>.</p>
+<h2><a class="header" href="#subgoal-selection" id="subgoal-selection">Subgoal selection</a></h2>
+<p>Once a given <code>Strand</code> for a table has been selected, a subgoal has to be
+selected. If there are no subgoals left, then there is nothing to do. Otherwise,
+if there are subgoals left, then a subgoal will attempt to be selected (from
+<a href="https://rust-lang.github.io/chalk/chalk_engine/context/trait.Context.html#tymethod.next_subgoal_index"><code>next_subgoal_index</code></a>).
+If the table for that subgoal had previously floundered (see next section), then
+we mark that subgoal as floundered and try the next subgoal. If all subgoals are
+marked as floundered, then this entire <code>Strand</code> is marked as floundered. If a
+subgoal is successfully selected, there is nothing left to do.</p>
+<h2><a class="header" href="#floundering" id="floundering">Floundering</a></h2>
+<p>There a couple cases where we &quot;give up&quot; - here called floundering - on trying to
+solve a goal. The most easy to understand case is if the types for a <code>Goal</code> or
+<code>Answer</code> are too large. (Side note, we <em>could</em> actually handle this - by
+generalizing - but turns out to be quite buggy and probably unnecessary).
+Another case where we flounder is if we try to solve a <code>Goal</code> where we try to
+<strong>enumerate</strong> non-enumerable types (like auto traits). In general, floundering
+just means that we <em>can't</em> know any more answers about a <code>Goal</code>, for some
+reason. However, if there are other <code>Strands</code> that don't flounder, there may
+still be other <code>Answer</code>s available.</p>
+<h2><a class="header" href="#answers" id="answers">Answers</a></h2>
+<p>After an answer has been found for a subgoal, it must be <em>applied</em> to the parent
+<code>Strand</code>. Specifically, it must be able to unify with any existing <code>Answers</code>. If
+the <code>Answer</code>s are incompatible, the <code>Strand</code> is dropped since it can't lead
+anywhere.</p>
+<h2><a class="header" href="#cycles" id="cycles">Cycles</a></h2>
+<p>If while pursuing a <code>Goal</code>, the engine encounters the same <code>Table</code> twice, then a
+cycle has occured. If the cycle is not coinductive (see next), then there is
+nothing that can be gained from taking this route. We mark how far up the stack
+is in the cycle, and try the next <code>Strand</code>. If all <code>Strand</code>s for a table
+encounter a cycle, then we know that the current selected <code>Goal</code> has no more
+answers.</p>
+<h2><a class="header" href="#coinduction-and-refinement-strands" id="coinduction-and-refinement-strands">Coinduction and refinement strands</a></h2>
+<p>Coinduction basically means that two statements can rely on each other being
+true, unless either is proven false.</p>
+<p>For example with the following program:</p>
+<pre><code class="language-notrust">#[coinductive]
+trait C1&lt;T&gt; { }
+forall&lt;A, B&gt; { A: C1&lt;B&gt; if B: C1&lt;A&gt; }
+</code></pre>
+<p>Then the goal <code>exists&lt;T, U&gt; { T: C1&lt;U&gt; }</code> holds for all <code>T</code> and <code>U</code>. If the <code>C1</code>
+trait was not coinductive, this would be a simple cycle.</p>
+<p>To implement coinduction in the engine, delayed subgoals were introduced.
+Essentially, if a cycle is found, and the <code>Goal</code> is coinductive, then this is
+&quot;delayed&quot; until the stack unwinds back to the top <code>Goal</code> and all other
+non-coinductive cycles have been proven. Then, <code>Goal</code> has been proven itself. In
+some cases, it is the <em>root</em> <code>Goal</code> that has delayed coinductive subgoals (see
+above example). In this case, we create another &quot;Refinement Strand&quot; where the
+only subgoals are the delayed coinductive subgoals. If this new <code>Strand</code> can be
+proven, then any <code>Answer</code>s from that are valid answers for the root <code>Goal</code>.
+However, since there are currently delayed coinductive subgoals, there are no
+answers available yet.</p>
+<p>For much more in-depth </p>
+<h1><a class="header" href="#coinduction" id="coinduction">Coinduction</a></h1>
+<p>This sub-chapter was originally prepared for wg-traits design meeting on 2019-11-08 (see the <a href="https://hackmd.io/OJRi5OM6Twunw8ZmuLxfRA">Hackmd</a> doc). It briefly covers some tricky (and previously incorrectly handled) cases of coinduction, as well as two proposed solutions. The resulting and current solution ended up being something <em>pretty</em> close to Niko's solution. However, this is basically a copy-paste from the original document, and so shouldn't necessarily be taken as 100% truth as far as implementation.</p>
+<h2><a class="header" href="#the-problem" id="the-problem">The problem</a></h2>
+<p>See <a href="https://github.com/rust-lang/chalk/issues/248">chalk#248</a> for details. The short version is that we fail to handle a case like this correctly, where <code>Ci</code> are all co-inductive goals:</p>
+<pre><code class="language-notrust">C1 :- C2, C3.
+C2 :- C1.
+</code></pre>
+<p>What happens is that we </p>
+<ul>
+<li>start to prove C1</li>
+<li>start to prove C2</li>
+<li>see a recursive attempt to prove C1, assume it is succesful</li>
+<li>consider C2 proved <strong>and cache this</strong></li>
+<li>start to prove C3, fail</li>
+<li>consider C1 <strong>unproven</strong></li>
+</ul>
+<p>Now we incorrectly have a result that <code>C2</code> is true -- but that result was made on the assumption that <code>C1</code> was true, and it was not.</p>
+<h2><a class="header" href="#some-other-tricky-cases-to-consider" id="some-other-tricky-cases-to-consider">Some other tricky cases to consider</a></h2>
+<h3><a class="header" href="#unification-failures" id="unification-failures">Unification failures</a></h3>
+<p>One thing to consider is that even when we have &quot;coinduction obligations&quot; to prove, we have to remember their substitutions too:</p>
+<pre><code class="language-notrust">C1(X) :- C2(Y), X = 22.
+C2(X) :- C3(X), X = 44.
+C3(X) :- C1(X), C2(X).
+</code></pre>
+<p>None of these predicates should be provable,  because <code>C1(X)</code> and <code>C2(X)</code> don't hold for the same <code>X</code>.</p>
+<p>If we're not careful, we might:</p>
+<ul>
+<li>start to prove C1</li>
+<li>start to prove C2</li>
+<li>start to prove C3, see the recursive calls to C1 and C2
+<ul>
+<li>maybe we wait to consider it proven until C1 and C2 complete</li>
+</ul>
+</li>
+</ul>
+<p>In this case, it's not enough that C1 and C2 are provable at all, they have to be provable for the same X.</p>
+<h3><a class="header" href="#non-trivial-self-cycles" id="non-trivial-self-cycles">Non-trivial self-cycles</a></h3>
+<pre><code class="language-notrust">C1(A) :- C1(B), B = 22, C2(A).
+C2(44).
+</code></pre>
+<p>This case is not provable, even though the only cycle is <code>C1(X) :- C1(Y)</code> -- but it turns out that <code>X</code> must not be 22. The catch is that while this might <em>appear</em> to be a trivial self-cycle, it is not! </p>
+<p>Actually I have to think about the best way to handle this case, as my proposed solution doesn't quite cut it. It wouldn't be <em>wrong</em> but it seems not ideal. -- Niko</p>
+<h3><a class="header" href="#delayed-trivial-cycles" id="delayed-trivial-cycles">Delayed trivial cycles</a></h3>
+<pre><code class="language-notrust">C1(A, B) :- C2(A, B), A = 22, B = 22.
+C2(A, B) :- C1(B, A).
+</code></pre>
+<p>This should be provable, but the cycle from C2 to C1 is not immediately visible as a trivial cycle, at least if subgoals are solved in order.</p>
+<h3><a class="header" href="#delayed-trivial-cycles-variant-2" id="delayed-trivial-cycles-variant-2">Delayed trivial cycles, variant 2</a></h3>
+<pre><code class="language-notrust">C1(A, B) :- C2(A, B), A = 22.
+C2(A, B) :- C1(B, A).
+</code></pre>
+<p>As above, here the only complete answer is <code>C1(22, 22)</code>. This is because the <code>C1</code>, <code>C2</code> cycle effectively guarantees equality.</p>
+<h3><a class="header" href="#delayed-trivial-cycles-variant-3" id="delayed-trivial-cycles-variant-3">Delayed trivial cycles, variant 3</a></h3>
+<pre><code class="language-notrust">C1(A, B) :- C1(B, A).
+</code></pre>
+<p>This is true for all <code>A, B</code></p>
+<h3><a class="header" href="#other-cases" id="other-cases">Other cases?</a></h3>
+<h2><a class="header" href="#approach-in-existing-pr" id="approach-in-existing-pr">Approach in existing PR</a></h2>
+<h3><a class="header" href="#high-level-idea" id="high-level-idea">High-level idea</a></h3>
+<ul>
+<li>When we encounter a co-inductive subgoal, we delay them in the current <code>Strand</code></li>
+<li>When all subgoals have been tested, and there are remaining delayed co-inductive subgoals, this is propogated up, marking the current <code>Strand</code> as co-inductive</li>
+<li>When the co-inductive <code>Strand</code>s reach the root table, we only then pursue an answer</li>
+</ul>
+<h3><a class="header" href="#failing-tests" id="failing-tests">Failing tests</a></h3>
+<ul>
+<li>Tests were added for the tricky cases above:
+<ul>
+<li><a href="https://github.com/rust-lang/chalk/pull/272/commits/7be2d42c6ea36dd4416774d6872c43e3988f05bd#diff-721709466568566f24fc2e8634c40dcbR140">First</a></li>
+<li><a href="https://github.com/rust-lang/chalk/pull/272/commits/7be2d42c6ea36dd4416774d6872c43e3988f05bd#diff-721709466568566f24fc2e8634c40dcbR171">Second</a></li>
+</ul>
+</li>
+<li>Both <em>are</em> provable to have no solutions, but are returned as ambiguous</li>
+</ul>
+<h2><a class="header" href="#nikos-proposed-solution" id="nikos-proposed-solution">Niko's proposed solution</a></h2>
+<h3><a class="header" href="#high-level-idea-1" id="high-level-idea-1">High-level idea</a></h3>
+<ul>
+<li>We only consider a co-induction subgoal proven for <em>trivial</em> recursion -- i.e., self-recursion where you have <code>C1 :- C1</code>.</li>
+<li>For non-trivial recursion, we propagate the co-inductive subgoal to the parent. This continues until it becomes trivial.</li>
+</ul>
+<h3><a class="header" href="#implementation-steps" id="implementation-steps">Implementation steps</a></h3>
+<p><strong>Extend <code>Answer</code> in two ways.</strong></p>
+<p>Currently <code>Answer</code> has a &quot;constrained substitution&quot; that includes values for the table's substitution + region constraints:</p>
+<pre><code class="language-notrust">struct Answer {
+    constrained_subst: Canonical&lt;ConstrainedSubst&gt;,
+    is_ambiguous: bool
+}
+
+struct ConstrainedSubst {
+    substitution: Substitution,
+    region_constraints: Vec&lt;RegionConstraint&gt;,
+}
+</code></pre>
+<p>we would first extend <code>ConstrainedSubst</code> to include as yet unproven co-inductive subgoals (this might actually be better done as a new type): </p>
+<pre><code class="language-rust ignore">struct ConstrainedSubst {
+    substitution: Substitution,
+    delayed_subgoals: Vec&lt;Literal&gt;,
+    region_constraints: Vec&lt;RegionConstraint&gt;,
+}
+</code></pre>
+<p>then we would extend <code>Answer</code> slightly as well so it can be &quot;ok&quot; or ambiguous, as today, but also an <em>error</em> case</p>
+<pre><code class="language-rust ignore">enum AnswerMode {
+    OK,
+    Ambiguous,
+    Error,
+}
+
+struct Answer {
+    constrained_subst: Canonical&lt;ConstrainedSubst&gt;,
+    mode: AnswerMode
+}
+</code></pre>
+<p>We won't need this error case till later, so let's ignore it for now. (And in a way, we never need it.)</p>
+<p><strong>Deferring coinductive subgoals</strong></p>
+<p>When we encounter a co-inductive subgoal, we check if it is <strong>trivial cycle</strong> or not. A trivial cycle is a case like <code>C1 :- C1</code>. We can simply consider such cycles to be true (but note the distinction between a <em>trivial</em> cycle and a <em>self-cycle</em> -- see the &quot;non-trivial self-cycle&quot; example above).</p>
+<p>For non-trivial cycles, we will want to store the cycle to be validated later. To accommodate that, we extend <code>ExClause</code> to include a <code>delayed_subgoals</code> list as well. We can write this the same way SLG does, so <code>Goal :- DelayedSubgoals | Subgoals</code></p>
+<p>In our example, proving <code>C2 :- C1</code> would result in adding <code>C1</code> to the list of delayed subgoals.</p>
+<p>When we reach the end of the list of subgoals, we can create an answer that contains the delayed subgoals. We don't have to add all the goals -- we can check for those that are trivial self-cycles again and remove them (in some cases, something which was not trivial to start may have become trivial through later unifications, see Delayed Trivial Self-Cycle case). Note that we <em>do</em> have to add all non-trivial cycles, including non-trivial self-cycles -- see the walkthrough of Non-trivial self-cycle variant 3.</p>
+<p>So the answer to <code>C2</code> would be</p>
+<pre><code class="language-notrust">substitution: [] // no variables
+delayed_subgoals: [&quot;C1&quot;]
+region_constraints: []
+</code></pre>
+<p>We can denote this as <code>C2 :- C1 |</code>, to use SLG notation.</p>
+<p><strong>Incorporating an answer with deferred subgoals.</strong></p>
+<p>When a table gets back an answer that has deferred sub-goals, they get added to the current list of subgoals. </p>
+<p>So e.g. in our case, we had a <code>ExClause</code> like:</p>
+<pre><code class="language-notrust">C1 :- | C2, C3
+</code></pre>
+<p>and we get the answer <code>C2 :- C1 |</code>, so we would convert it to</p>
+<pre><code class="language-notrust">C1 :- | C3, C1
+</code></pre>
+<p>i.e., we have added <code>C1</code> to the list of goals to prove. When we go to prove <code>C3</code>, of course, we will fail -- but it had succeeded, we would go on to prove <code>C1</code> but encounter a trivial cycle and hence succeed.</p>
+<p><strong>Extending root answer</strong></p>
+<p>So we failed to prove C1, but we do have a (conditional) answer to C2 -- <code>C2 :- C1 |</code>, even though <code>C2</code> is unprovable. What happens if <code>ensure_root_answer</code> is invoked on <code>C2</code>?</p>
+<p>What we have here is a <em>conditional</em> answer. We know that <code>C1</code> must have ultimately resolved itself somehow (although it might not yet be proven). What we can do is create a strand in C2 to evaluate C1 again -- if this strand succeeds, it can actually overwrite the <code>C2 :- C1 |</code> answer in place with <code>C2 :-</code> (i.e., an unconditional answer). This is just a refinement of what we had. If the strand fails, though, we'll want to remember the error.</p>
+<p>I think when we get a new answer, we want it to <em>overwrite</em> the old answer in place, rather than create a new answer. This is valid because it's not a new answer, it's just a more refined form of the old answer (although note that it might have different substitutions and other details, see the &quot;delayed trivial cycle&quot; case).</p>
+<p>In particular, it could be that the table already has a &quot;complete&quot; set of answers -- i.e., somebody invoked <code>ensure_answer(N)</code> and got back <code>None</code>. We don't want to be adding new answers which would change the result of that call. It <em>is</em> a bit strange that we are changing the result of <code>ensure_answer(i)</code> for the current <code>i</code>, but then the result is the same answer, just a bit more elaborated.</p>
+<p>The idea then would be to create a strand <em>associated with this answer somehow</em> (it doesn't, I don't think, live in the normal strand table; we probably have a separate &quot;refinment strand&quot; table). This strand has as its subgoals the delayed subgoals. It pursues them. This either results in an answer (which replaces the existing answer) or an error (in which case the existing answer is marked as <em>error</em>). This may require extending strand with an optional answer index that it should overwrite, or perhaps we thread it down as an argument to <code>pursue_strand</code> (optional because, in the normal mode, we are just appending a new answer).</p>
+<p>(Question: What distinguishes root answer? Nothing -- we could actually do this process for any answer, so long as the delayed subgoals are not to tables actively on the stack. This just happens to be trivially true for root answers. The key part though is that the answer must be registered in the table first before the refinement strand is created, see Delayed Self-Cycle Variant 3.)</p>
+<p>This is complex, so let's walk through an example or two.</p>
+<p><strong>The original problem.</strong> When we finish solving <code>C1</code>, we leave <code>C2</code> with a single answer <code>C2 :- C1 |</code>. If someone  invokes <code>ensure_root_answer(C2, 0)</code>, we would see the delayed literal and create a refinement strand for the answer: <code>C2 :- | C1</code>. We would pursue <code>C1</code> and get back the successful answer. So the refinement strand would terminate and we can overwrite with the answer <code>C2 :- |</code>.</p>
+<p><strong>Delayed trivial self-cycle.</strong> Similar to above, but the answer is <code>C2(?A, ?B) :- C1(?B, ?A) |</code>. In other words, in the canonical answer, we have a (identity) substitution of <code>[^0, ^1]</code> and a delayed goal of <code>C1(^1, ^0)</code>. The strand we create will find only one answer to <code>C1</code>, <code>C1(22, 22)</code>, so we wind up with an answer <code>C2(22, 22)</code>.</p>
+<p><strong>Handling error answers</strong></p>
+<p>We introduced the idea of an &quot;error answer&quot;...how do we handle that? It's fairly simple. If a strand encounters an error answer, it simply fails. Done. The <em>outer</em> search however needs to treat an error answer as basically a no-op -- so e.g. the answer iterator should simply increment the error counter and move to the next answer.</p>
+<h3><a class="header" href="#walk-through-delayed-trivial-self-cycle-variant-2" id="walk-through-delayed-trivial-self-cycle-variant-2">Walk through: delayed trivial self cycle, variant 2</a></h3>
+<pre><code class="language-notrust">C1(A, B) :- C2(A, B), A = 22.
+C2(A, B) :- C1(B, A).
+</code></pre>
+<ul>
+<li><code>ensure_root_answer(C1(?A, ?B))</code> is invoked
+<ul>
+<li>We start solving <code>C1(?A, ?B)</code> with the ex-clause <code>C1(?A, ?B) :- | C2(?A, ?B), ?A = 22</code>
+<ul>
+<li>That starts solving <code>C2(?A, ?B)</code>
+<ul>
+<li>This gets an answer <code>C2(?A, ?B) :- C1(?B, ?A) |</code></li>
+<li>When answer is incorporated, we get <code>C1(?A, ?B) :- | C1(?B, ?A), ?A = 22</code></li>
+</ul>
+</li>
+<li><code>C1(?B, ?A)</code> is a non-trivial cycle, and so we get 
+<ul>
+<li><code>C1(?A, ?B) :- C1(?B, ?A) | ?A = 22</code></li>
+</ul>
+</li>
+<li>Unification completes, leaving us with
+<ul>
+<li><code>C1(22, ?B) :- C1(?B, 22) |</code></li>
+</ul>
+</li>
+<li>This is a complete answer</li>
+</ul>
+</li>
+<li>ensure root answer attempts to refine this answer, creating a strand for <code>C1(22, ?B) :- | C1(?B, 22)</code>
+<ul>
+<li>This creates a table for <code>C1(?B, 22)</code> with ex-clause <code>C1(?B, 22) :- | C2(?B, 22), ?B = 22</code>
+<ul>
+<li>We start solving <code>C2(?B, 22)</code>, which has ex-clause <code>C2(?B, 22) :- C1(22, ?B)</code>
+<ul>
+<li>This creates a table for <code>C1(22, ?B)</code>, with ex-clause <code>C1(22, ?B) :- C2(22, ?B), 22 = 22</code>
+<ul>
+<li>This starts solving <code>C2(22, ?B)</code>, which is a fresh table with ex-clause <code>C2(22, ?B) :- C1(?B, 22)</code>
+<ul>
+<li>This is a co-inductive cycle</li>
+<li>So our answer is <code>C2(22, ?B) :- C1(?B, 22) |</code></li>
+</ul>
+</li>
+<li>Incorporating this answer yields <code>C1(22, ?B) :- 22 = 22, C1(?B, 22)</code></li>
+<li>The unification constraint succeeds, leaving <code>C1(22, ?B) :- C1(?B, 22)</code></li>
+<li>Co-inductive cycle detected, so answer is
+<ul>
+<li><code>C1(22, ?B) :- C1(?B, 22) |</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>This answer is incorporated into <code>C2</code>, yielding the ex-clause
+<ul>
+<li><code>C2(?B, 22) :- C1(?B, 22)</code></li>
+</ul>
+</li>
+<li>Pursuing that sub-goal gives a co-inductive cycle, so our final answer is
+<ul>
+<li><code>C2(?B, 22) :- C1(?B, 22) |</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>This answer is incorporated, yielding ex-clause <code>C1(?B, 22) :- | ?B = 22, C1(?B, 22)</code></li>
+<li>Unification yields <code>C1(22, 22) :- C1(22, 22)</code></li>
+<li>Trivial self-cycle detected, so final answer is
+<ul>
+<li><code>C1(22, 22)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>the answer for <code>C1(?A, ?B)</code> is thus updated to <code>C1(22, 22)</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#walk-through-delayed-trivial-self-cycle-variant-3" id="walk-through-delayed-trivial-self-cycle-variant-3">Walk through: delayed trivial self cycle, variant 3</a></h3>
+<pre><code class="language-notrust">C1(A, B) :- C1(B, A).
+</code></pre>
+<p>This example is interesting because it shows that we have to incorporate non-trivial self cycles into an answer so they can recursively build on one another.</p>
+<ul>
+<li>we get an initial answer of
+<ul>
+<li><code>C1(?A, ?B) :- C1(?B, ?A) |</code></li>
+</ul>
+</li>
+<li>if we attempt to refine this, we will get a strand <code>C1(?X, ?Y) :- C1(?Y, ?X)</code>
+<ul>
+<li>pursuing the first subgoal <code>C1(?Y, ?X)</code> leads us to our own table, but at answer 0
+<ul>
+<li>(the very answer we are refining)</li>
+<li>the answer is <code>C1(?Y, ?X) :- C1(?X, ?Y) |</code></li>
+</ul>
+</li>
+<li>this strand incorporates its own answer, yielding
+<ul>
+<li><code>C1(?X, ?Y) :- C1(?X, ?Y)</code></li>
+</ul>
+</li>
+<li>next subgoal is a trivial self-cycle, discard, yielding
+<ul>
+<li><code>C1(?X, ?Y) :-</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>result: true</li>
+</ul>
+<h3><a class="header" href="#walk-through-non-trivial-self-cycle" id="walk-through-non-trivial-self-cycle">Walk through: non-trivial self cycle</a></h3>
+<p>Let's walk through one more case, the non-trivial self cycle.</p>
+<pre><code class="language-notrust">C1(A) :- C1(B), B = 22, C2(A).
+C2(44).
+</code></pre>
+<p>What happens here is that we get an initial answer from <code>C1</code> that looks like:</p>
+<pre><code class="language-notrust">C1(44) :- C1(22) |
+</code></pre>
+<p>Ensure root answer will thus try to refine by trying to solve <code>C1(22)</code>. Interestingly, this is going to go to a distinct table, because the canonical form is not the same, but that table will just fail.</p>
+<h1><a class="header" href="#glossary-and-terminology" id="glossary-and-terminology">Glossary and terminology</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
